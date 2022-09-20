@@ -1,5 +1,5 @@
 {
     "name": "mp-ecommerce-php",
     "type": "project",
-    "require": {"mercadopago/dx-php:2.5.0"}
+    "require": {"mercadopago/dx-php": "^2.5""}
 }
