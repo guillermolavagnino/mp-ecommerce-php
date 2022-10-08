@@ -26,8 +26,8 @@ MercadoPago\SDK::setAccessToken("ENV_ACCESS_TOKEN");
   }
   
   if (isset($payment) && !empty($payment)) {
-	//$json = file_get_contents($payment);
-	$json = file_get_contents("php://input");
+	$json = file_get_contents($payment);
+	//$json = file_get_contents("php://input");
     file_put_contents("./webhook.json", $json . PHP_EOL);
   }
 
