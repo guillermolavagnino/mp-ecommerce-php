@@ -37,7 +37,7 @@ require __DIR__ . '/vendor/autoload.php';
       );
   */                ////////////////////////
 	$payer->address = array(
-        "street_name" => "Falsa",
+        "street_name" => "falsa",
         "street_number" => 123,
         "zip_code" => "1405"
       );
