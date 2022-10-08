@@ -46,9 +46,9 @@ require __DIR__ . '/vendor/autoload.php';
 	$preference->payer = $payer;
 	 
 	$preference->back_urls = array(
-        "success" => "https://glavagnino-mp-commerce-php.herokuapp.com/success.php",
-        "failure" => "https://glavagnino-mp-commerce-php.herokuapp.com/failure.php",
-        "pending" => "https://glavagnino-mp-commerce-php.herokuapp.com/pending.php"
+        "success" => "https://glavagnino-mp-ecommerce-php.herokuapp.com/success.php",
+        "failure" => "https://glavagnino-mp-ecommerce-php.herokuapp.com/failure.php",
+        "pending" => "https://glavagnino-mp-ecommerce-php.herokuapp.com/pending.php"
       );
     $preference->auto_return = "approved";
 
@@ -59,7 +59,7 @@ require __DIR__ . '/vendor/autoload.php';
         "installments" => 6
       );
 	  
-	$preference->notification_url = 'https://glavagnino-mp-commerce-php.herokuapp.com/notificaciones.php';
+	$preference->notification_url = 'https://glavagnino-mp-ecommerce-php.herokuapp.com/notificaciones.php';
     $preference->external_reference = "info@useweb.com.ar";
 
     $preference->save();
