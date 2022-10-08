@@ -1,3 +1,71 @@
+<?php
+
+require __DIR__ . '/vendor/autoload.php';
+    // Agrega credenciales
+	MercadoPago\SDK::setAccessToken('APP_USR-8709825494258279-092911-227a84b3ec8d8b30fff364888abeb67a-1160706432');
+	MercadoPago\SDK::setIntegratorId("dev_24c65fb163bf11ea96500242ac130004");
+	
+	// Crea un objeto de preferencia
+    $preference = new MercadoPago\Preference();
+
+    // Crea un ítem en la preferencia
+    $item = new MercadoPago\Item();
+    $item->id = "1234";
+    $item->title = $_POST['title'];
+	//$item->currency_id = "ARS";      ////////////////////////
+    $directorio = "https://glavagnino-mp-ecommerce-php.herokuapp.com/assets/";
+	$img = basename($_POST['img']);
+    $item->picture_url = $directorio . $img;
+	//$item->picture_url = $_POST['img'];
+    $item->description = "Dispositivo móvil de Tienda e-commerce";
+	$item->category_id = "phones";      ////////////////////////
+    $item->quantity = $_POST['unit'];
+    $item->unit_price = $_POST['price'];
+	
+    $payer = new MercadoPago\Payer();
+    $payer->name = "Lalo";
+    $payer->surname = "Landa";
+    $payer->email = "test_user_36961754@testuser.com";
+	$payer->phone = array(
+        "area_code" => "11",
+        "number" => "55746925"
+      );
+  /*
+      $payer->identification = array(
+        "type" => "DNI",
+        "number" => "12345678"
+      );
+  */                ////////////////////////
+	$payer->address = array(
+        "street_name" => "Falsa",
+        "street_number" => 123,
+        "zip_code" => "1405"
+      );
+	
+	$preference->items = array($item);
+	$preference->payer = $payer;
+	 
+	$preference->back_urls = array(
+        "success" => "https://glavagnino-mp-commerce-php.herokuapp.com/success.php",
+        "failure" => "https://glavagnino-mp-commerce-php.herokuapp.com/failure.php",
+        "pending" => "https://glavagnino-mp-commerce-php.herokuapp.com/pending.php"
+      );
+    $preference->auto_return = "approved";
+
+    $preference->payment_methods = array(
+        "excluded_payment_methods" => array(
+          array("id" => "visa")
+       ),
+        "installments" => 6
+      );
+	  
+	$preference->notification_url = 'https://glavagnino-mp-commerce-php.herokuapp.com/notificaciones.php';
+    $preference->external_reference = "info@useweb.com.ar";
+
+    $preference->save();
+
+?>
+
 <!DOCTYPE html>
 <html class="supports-animation supports-columns svg no-touch no-ie no-oldie no-ios supports-backdrop-filter as-mouseuser" lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     
@@ -11,6 +79,8 @@
     src="https://code.jquery.com/jquery-3.4.1.min.js"
     integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
     crossorigin="anonymous"></script>
+    <script src="https://sdk.mercadopago.com/js/v2"></script>
+    <script src="https://www.mercadopago.com/v2/security.js" view="item"></script>
 
     <link rel="stylesheet" href="./assets/category-landing.css" media="screen, print">
 
@@ -130,7 +200,25 @@
                                             <?php echo "$" . $_POST['unit'] ?>
                                         </h3>
                                     </div>
-                                    <button type="submit" class="mercadopago-button" formmethod="post">Pagar</button>
+                                    <!--<button type="submit" class="mercadopago-button" formmethod="post">Pagar</button> -->
+                                    <button type="submit" class="mercadopago-button"><a href="<?php echo $preference->init_point; // NO USAR $preference->sandbox_init_point para modo de prueba; ?>">Pagar la compra</a></button>
+
+                                    <!--<div class="cho-container"></div>
+                                    <script>
+                                        const mp = new MercadoPago('APP_USR-ff96fe80-6866-4888-847e-c69250754d38', {
+                                          locale: 'es-AR'
+                                        });
+                                      
+                                        mp.checkout({
+                                          preference: {
+                                            id: '<?php //echo $preference->id ?>'
+                                          },
+                                          render: {
+                                            container: '.cho-container',
+                                            label: 'Pagar la compra',
+                                          }
+                                        });
+                                    </script>-->
                                 </div>
                             </div>
                         </div>
