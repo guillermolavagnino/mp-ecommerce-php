@@ -68,7 +68,7 @@
                 <div id="accessories-tab" class="as-accessories-details">
                     <div class="as-accessories" id="as-accessories">
                       <h3>El pago ha fallado</h3>
-                      <?php
+                      <?php 
 
 					  if (isset($_REQUEST['external_reference'])) {
 	                    echo '<p>external_reference = '.$_REQUEST['external_reference'].'</p>';
@@ -78,6 +78,9 @@
 	                  }
 		              if (isset($_REQUEST['status'])) {
 	                    echo '<p>status = '.$_REQUEST['status'].'</p>';
+	                  }
+		              if (isset($_REQUEST['status_detail'])) {
+	                    echo '<p>status_detail = '.$_REQUEST['status_detail'].'</p>';
 	                  }
 		              if (isset($_REQUEST['collection_id'])) {
 	                    echo '<p>collection_id = '.$_REQUEST['collection_id'].'</p>';
