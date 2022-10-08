@@ -3,6 +3,7 @@
 require __DIR__ . '/vendor/autoload.php';
     // Agrega credenciales
 	MercadoPago\SDK::setAccessToken('APP_USR-8709825494258279-092911-227a84b3ec8d8b30fff364888abeb67a-1160706432');
+    MercadoPago\SDK::setPublicKey('APP_USR-ff96fe80-6866-4888-847e-c69250754d38');  ///////////////
 	MercadoPago\SDK::setIntegratorId("dev_24c65fb163bf11ea96500242ac130004");
 	
 	// Crea un objeto de preferencia
@@ -12,7 +13,7 @@ require __DIR__ . '/vendor/autoload.php';
     $item = new MercadoPago\Item();
     $item->id = "1234";
     $item->title = $_POST['title'];
-	//$item->currency_id = "ARS";      ////////////////////////
+	$item->currency_id = "ARS";      ////////////////////////
     $directorio = "https://glavagnino-mp-ecommerce-php.herokuapp.com/assets/";
 	$img = basename($_POST['img']);
     $item->picture_url = $directorio . $img;
@@ -30,12 +31,12 @@ require __DIR__ . '/vendor/autoload.php';
         "area_code" => "11",
         "number" => "55746925"
       );
-  /*
+
       $payer->identification = array(
         "type" => "DNI",
         "number" => "12345678"
       );
-  */                ////////////////////////
+               ////////////////////////
 	$payer->address = array(
         "street_name" => "falsa",
         "street_number" => 123,
