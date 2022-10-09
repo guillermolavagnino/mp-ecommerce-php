@@ -5,7 +5,9 @@ ini_set('display_startup_errors', '1');
 error_reporting(E_ALL);
 */
 require __DIR__ . '/vendor/autoload.php';
-MercadoPago\SDK::setAccessToken("ENV_ACCESS_TOKEN");
+MercadoPago\SDK::setAccessToken('APP_USR-8902774665784533-092911-fab78ca802b6475923ebb446b02fee62-1160743707');
+MercadoPago\SDK::setPublicKey('APP_USR-9a464dc4-1ad8-4646-af03-1f18d41cd90c');  ///////////////
+MercadoPago\SDK::setIntegratorId("dev_24c65fb163bf11ea96500242ac130004");
 
   switch($_POST["type"]) {
       case "payment":
