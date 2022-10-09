@@ -8,7 +8,7 @@ require __DIR__ . '/vendor/autoload.php';
 	
 	// Crea un objeto de preferencia
     $preference = new MercadoPago\Preference();
-
+    
     // Crea un ítem en la preferencia
     $item = new MercadoPago\Item();
     $item->id = "1234";
@@ -22,16 +22,17 @@ require __DIR__ . '/vendor/autoload.php';
 	$item->category_id = "phones";      ////////////////////////
     $item->quantity = $_POST['unit'];
     $item->unit_price = $_POST['price'];
-	
+
     $payer = new MercadoPago\Payer();
     $payer->name = "Lalo";
     $payer->first_same = "Lalo";
     $payer->surname = "Landa";
 	$payer->last_name = "Landa";
     $payer->email = "test_user_36961754@testuser.com";
-	//$ahora = time();
-	//$creado = date_format(date_create('@'. $ahora), 'c') . "\n";
-	//$payer->date_created = $creado;
+	$ahora = time();
+	$creado = date_format(date_timestamp_set(new DateTime(), $ahora)->setTimezone(new DateTimeZone('America/Buenos_Aires')), 'c');
+	$payer->date_created = $creado;
+	//$payer->date_created = "2022-09-12T12:58:41.425-04:00";
 	$payer->phone = array(
         "area_code" => "11",
         "number" => "55746925"
@@ -41,7 +42,7 @@ require __DIR__ . '/vendor/autoload.php';
         "type" => "DNI",
         "number" => "12345678"
       );
-               ////////////////////////
+
 	$payer->address = array(
         "street_name" => "falsa",
         "street_number" => 123,
