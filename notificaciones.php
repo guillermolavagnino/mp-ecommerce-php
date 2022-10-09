@@ -28,9 +28,9 @@ MercadoPago\SDK::setIntegratorId("dev_24c65fb163bf11ea96500242ac130004");
   }
   
   if (isset($payment) && !empty($payment)) {
-	$json = file_get_contents($payment);
-	//$json = file_get_contents("php://input");
-    file_put_contents("./webhook.json", $json . PHP_EOL);
+	//$json = file_get_contents($payment);
+	$json = file_get_contents("php://input");
+    file_put_contents("https://glavagnino-mp-ecommerce-php.herokuapp.com/webhook.json", $json . PHP_EOL);
   }
 
 
