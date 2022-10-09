@@ -25,7 +25,9 @@ require __DIR__ . '/vendor/autoload.php';
 	
     $payer = new MercadoPago\Payer();
     $payer->name = "Lalo";
+    $payer->first_same = "Lalo";
     $payer->surname = "Landa";
+	$payer->last_name = "Landa";
     $payer->email = "test_user_36961754@testuser.com";
 	$payer->phone = array(
         "area_code" => "11",
