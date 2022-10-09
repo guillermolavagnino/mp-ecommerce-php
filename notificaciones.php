@@ -33,7 +33,7 @@ MercadoPago\SDK::setIntegratorId("dev_24c65fb163bf11ea96500242ac130004");
     //file_put_contents("https://glavagnino-mp-ecommerce-php.herokuapp.com/webhook.json", $json . PHP_EOL);
   //}
   
-  $wh = fopen( __DIR__ .'/webhook.json', 'a');
+  $wh = fopen( __DIR__ .'/webhook.txt', 'r+b');
   fwrite($wh, "WEBHOOK");
   $json = json_encode($json);
   fwrite($wh, $json);
