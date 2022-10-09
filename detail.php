@@ -206,7 +206,7 @@ require __DIR__ . '/vendor/autoload.php';
 
                                     <!--<div class="cho-container"></div>
                                     <script>
-                                        const mp = new MercadoPago('APP_USR-9a464dc4-1ad8-4646-af03-1f18d41cd90c', {
+                                        const mp = new MercadoPago('APP_USR-ff96fe80-6866-4888-847e-c69250754d38', {
                                           locale: 'es-AR'
                                         });
                                       
