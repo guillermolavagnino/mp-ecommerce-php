@@ -29,6 +29,9 @@ require __DIR__ . '/vendor/autoload.php';
     $payer->surname = "Landa";
 	$payer->last_name = "Landa";
     $payer->email = "test_user_36961754@testuser.com";
+	$ahora = time();
+	$creado = date_format(date_create('@'. $ahora), 'c') . "\n";
+	$payer->date_created = $creado;
 	$payer->phone = array(
         "area_code" => "11",
         "number" => "55746925"
