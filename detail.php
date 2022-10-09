@@ -32,7 +32,7 @@ require __DIR__ . '/vendor/autoload.php';
 	$ahora = time();
 	$creado = date_format(date_timestamp_set(new DateTime(), $ahora)->setTimezone(new DateTimeZone('America/Buenos_Aires')), 'c');
 	$payer->date_created = $creado;
-	//$payer->date_created = "2022-09-12T12:58:41.425-04:00";
+	//$payer->date_created = "2022-10-08T12:58:41.425-04:00";
 	$payer->phone = array(
         "area_code" => "11",
         "number" => "55746925"
