@@ -2,8 +2,8 @@
 
 require __DIR__ . '/vendor/autoload.php';
     // Agrega credenciales
-	MercadoPago\SDK::setAccessToken('APP_USR-8709825494258279-092911-227a84b3ec8d8b30fff364888abeb67a-1160706432');
-    MercadoPago\SDK::setPublicKey('APP_USR-ff96fe80-6866-4888-847e-c69250754d38');  ///////////////
+	MercadoPago\SDK::setAccessToken('APP_USR-8902774665784533-092911-fab78ca802b6475923ebb446b02fee62-1160743707');
+    MercadoPago\SDK::setPublicKey('APP_USR-9a464dc4-1ad8-4646-af03-1f18d41cd90c');  ///////////////
 	MercadoPago\SDK::setIntegratorId("dev_24c65fb163bf11ea96500242ac130004");
 	
 	// Crea un objeto de preferencia
@@ -206,7 +206,7 @@ require __DIR__ . '/vendor/autoload.php';
 
                                     <!--<div class="cho-container"></div>
                                     <script>
-                                        const mp = new MercadoPago('APP_USR-ff96fe80-6866-4888-847e-c69250754d38', {
+                                        const mp = new MercadoPago('APP_USR-9a464dc4-1ad8-4646-af03-1f18d41cd90c', {
                                           locale: 'es-AR'
                                         });
                                       
