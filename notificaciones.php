@@ -36,7 +36,8 @@ MercadoPago\SDK::setIntegratorId("dev_24c65fb163bf11ea96500242ac130004");
   $wh = fopen( __DIR__ .'/webhook.txt', 'r+b');
   //fwrite($wh, "WEBHOOK");
   //$json = json_encode($json);
-  fwrite($wh, $json . PHP_EOL);
+  $json  = json_encode($json,  JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_NUMERIC_CHECK);
+  fwrite($wh, $json);
   fclose($wh);
 
 
